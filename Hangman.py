@@ -1,11 +1,12 @@
 import random
 def get_word():
-  words=['facebook', 'syntax', 'error', 'implement', 'computer', 'system', 'keyword', 'hacker', 'security', 'debug', 'company', 'cyber', 'technology', 'processor', 'chip', 'ram', 'speed', 'clock', 'progress', 'storage', 'charles', 'keyboard', 'snapdragon', 'output']
-  return random.choice(words).upper()
+        words=['facebook', 'syntax', 'error', 'implement', 'computer', 'system', 'keyword', 'hacker', 'security', 'debug', 'company', 'cyber', 'technology', 'processor', 'chip', 'ram', 'speed', 'clock', 'progress', 'storage', 'charles', 'keyboard', 'snapdragon', 'output']
+        return random.choice(words).upper()
 def main():
   word=get_word()
   guesses=[]
   guessed=False
+  #this is the word printed
   print('The word contains',len(word),'letters!')
   while not guessed:
     text='Please enter one letter or a {} letter word'.format(len(word))
@@ -35,22 +36,24 @@ def main():
     main()
   else:
     print('Thank you for playing :)')
-
+#checking function
 def check(word,guesses,guess):
   status=''
-  match=0
+  matches=0
   for letter in word:
     if letter in guesses:
       status+=letter
     else:
       status+='*'
     if letter==guess:
-      match+=1
-  if match > 1 :
-        print ('you have gussed ', match, 'letter truly "'+ guess +'"'+'\'s')
-  elif match == 1:
-        print ('You found one correct letter!', guess) 
+      matches+=1
+  if matches > 1 :
+        print ('you have gussed ', matches, 'letter truly "'+ guess +'"'+'\'s')
+  elif matches == 1:
+        print ('You found one correct letter!', guess)
   else:
         print ('Cant find the letter in the word, try again.')
   return status
+
+#calling main function here
 main()
